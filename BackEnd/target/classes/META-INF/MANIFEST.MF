@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: Notes
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: witho
+Implementation-Vendor-Id: com.example
+Build-Jdk: 1.8.0_241
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/Notes
+Created-By: Maven Integration for Eclipse
+
