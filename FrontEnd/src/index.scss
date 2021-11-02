@@ -1,0 +1,291 @@
+@import "mixin";
+
+$app-padding: 20px;
+$app-maxwidth: 600px;
+
+body {
+  background-color: rgb(230, 230, 230);
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.preview {
+  background-color: transparent;
+  @include box-shadow(2);
+  border-radius: 8px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  margin-top: 2em;
+  width: 100%;
+  &_label {
+    font-size: larger;
+  }
+}
+
+.login {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &-container {
+    margin-bottom: 5em;
+    width: 75%;
+  }
+
+  &_title {
+    text-align: center;
+  }
+  &_body {
+    &-text {
+      text-align: left;
+      padding-left: 1px;
+    }
+    &-input {
+      @include box-shadow(2);
+      border: none;
+      font-size: large;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      width: 100%;
+      padding: 1em;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      &:focus {
+        outline: none;
+      }
+    }
+    &_late {
+      text-align: right;
+      &-button {
+        color: white;
+        font-size: large;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        background-color: rgb(13, 180, 209);
+        @include box-shadow(2);
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
+
+.about {
+  text-align: center;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: -310px;
+  height: 100vh;
+  width: 300px;
+  background-color: #ffffff;
+  @include box-shadow(5);
+  transition: left 0.3s ease-in-out;
+  &--open {
+    left: 0;
+  }
+
+  &_head {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    &-button {
+      background: transparent;
+      border: none;
+      border-radius: 5px;
+      margin-right: 15px;
+      margin-top: 10px;
+      cursor: pointer;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &_pages {
+    margin-top: 20px;
+    padding: 0 8px;
+    &__item {
+      display: block;
+      width: 100%;
+      cursor: pointer;
+      background-color: transparent;
+      display: flex;
+      border: none;
+      align-items: center;
+      padding: 6px 8px;
+      &:focus {
+        outline: none;
+      }
+      i {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+.error {
+  text-align: center;
+
+  &_button {
+    background-color: rgb(13, 180, 209);
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: large;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      background-color: rgb(15, 144, 167);
+    }
+  }
+}
+
+.new-note {
+  border-radius: 5px;
+  background-color: white;
+  padding: 10px 12px;
+  @include box-shadow(1);
+  margin-bottom: 15px;
+
+  &_dropdown {
+    text-align: right;
+    width: 10em;
+    background-color: white;
+    @include box-shadow(1);
+  }
+
+  &_div {
+    text-align: right;
+  }
+
+  &_button {
+    color: white;
+    font-size: large;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: rgb(13, 180, 209);
+    @include box-shadow(1);
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &_input {
+    width: 100%;
+    font-size: large;
+    border: none;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.container {
+  margin: 0 auto;
+  padding: 70px $app-padding;
+  max-width: $app-maxwidth;
+}
+
+.note-list {
+  margin: 40px 0px;
+}
+
+.note {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background-color: white;
+  padding: 10px 12px;
+  @include box-shadow(1);
+  white-space: normal;
+
+  &_text {
+    flex: 1;
+    white-space: normal;
+  }
+
+  &_button {
+    background-color: transparent;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+    &--hidden {
+      visibility: hidden;
+    }
+  }
+  &_input {
+    flex: 1;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid rgb(72, 153, 185);
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+button:active {
+  background-color: rgba(0, 0, 0, 0.055);
+}
+
+.app-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  font-size: 25px;
+  background-color: rgb(13, 180, 209);
+  @include box-shadow(2);
+
+  &_acttion {
+    background: transparent;
+    border: transparent;
+    border-radius: 5px;
+    color: white;
+    &:focus {
+      outline: none;
+    }
+
+    &--rotation {
+      @include rotation();
+    }
+
+    &--danger {
+      color: rgb(207, 103, 103);
+    }
+  }
+
+  &_brand {
+    flex: 1;
+    padding-left: 10px;
+  }
+
+  &_container {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 $app-padding;
+    max-width: $app-maxwidth;
+  }
+}
